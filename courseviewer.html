@@ -1,0 +1,191 @@
+<html>
+
+<head>
+    <title>View Courses</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+    <h1>Courses</h1>
+    <div><button id="showCreateButton" onclick="showCreate()">Create</button></div>
+    <div>
+        <table class="table" id="courseTable">
+            <tr>
+                <th>id</th>
+                <th>Course Name</th>
+                <th>Student Name</th>
+                <th>Duration</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </table>
+    </div>
+    <div id='createUpdateForm' style="display: none">
+        <h2><span id="createLabel">Create a</span> <span id="updateLabel">Update</span> Course</h2>
+        <input type="hidden" name="id" />
+        Course Name <input type="text" name="CourseName" /><br />
+        Student Name <input type="text" name="StudentName" /> <br />
+        Duration <input type="number" name="Duration" /> <br />
+        <span><button id="doCreateButton" onclick="doCreate()">Create</button></span>
+        <span><button id="doUpdateButton" onclick="doUpdate()">Update</button></span>
+    </div>
+</body>
+<script>
+    function showCreate() {
+        document.getElementById('showCreateButton').style.display = "none"
+        document.getElementById('courseTable').style.display = "none"
+        document.getElementById('createUpdateForm').style.display = "block"
+
+        document.getElementById('createLabel').style.display = "inline"
+        document.getElementById('updateLabel').style.display = "none"
+
+        document.getElementById('doCreateButton').style.display = "block"
+        document.getElementById('doUpdateButton').style.display = "none"
+    }
+    function showViewAll() {
+        document.getElementById('showCreateButton').style.display = "block"
+        document.getElementById('courseTable').style.display = "block"
+        document.getElementById('createUpdateForm').style.display = "none"
+    }
+    function showUpdate(buttonElement) {
+        document.getElementById('showCreateButton').style.display = "none"
+        document.getElementById('courseTable').style.display = "none"
+        document.getElementById('createUpdateForm').style.display = "block"
+
+        document.getElementById('createLabel').style.display = "none"
+        document.getElementById('updateLabel').style.display = "inline"
+
+        document.getElementById('doCreateButton').style.display = "none"
+        document.getElementById('doUpdateButton').style.display = "block"
+
+        var rowElement = buttonElement.parentNode.parentNode
+        var course = getCourseFromRow(rowElement)
+        populateFormWithCourse(course)
+    }
+    function doCreate() {
+        var form = document.getElementById('createUpdateForm')
+        var course = {}
+        course.CourseName = form.querySelector('input[name="CourseName"]').value
+        course.StudentName = form.querySelector('input[name="StudentName"]').value
+        course.Duration = parseInt(form.querySelector('input[name="Duration"]').value, 10)
+        createCourseAjax(course)
+    }
+    function doUpdate() {
+        var course = getCourseFromForm();
+        var rowElement = document.getElementById(course.id);
+        updateCourseAjax(course);
+        setCourseInRow(rowElement, course);
+        clearForm();
+        showViewAll();
+    }
+    function doDelete(r) {
+        var tableElement = document.getElementById('courseTable');
+        var rowElement = r.parentNode.parentNode;
+        var index = rowElement.rowIndex;
+        deleteCourseAjax(rowElement.getAttribute("id"));
+        tableElement.deleteRow(index);
+    }
+    function addCourseToTable(course) {
+        var tableElement = document.getElementById('courseTable')
+        var rowElement = tableElement.insertRow(-1)
+        rowElement.setAttribute('id', course.id)
+        rowElement.insertCell(0).innerHTML = course.id
+        rowElement.insertCell(1).innerHTML = course.CourseName
+        rowElement.insertCell(2).innerHTML = course.StudentName
+        rowElement.insertCell(3).innerHTML = course.Duration
+        rowElement.insertCell(4).innerHTML = '<button onclick="showUpdate(this)">Update</button>'
+        rowElement.insertCell(5).innerHTML = '<button onclick=doDelete(this)>Delete</button>'
+    }
+    function clearForm() {
+        var form = document.getElementById('createUpdateForm')
+        form.querySelector('input[name="CourseName"]').value = ''
+        form.querySelector('input[name="StudentName"]').value = ''
+        form.querySelector('input[name="Duration"]').value = ''
+    }
+    function getCourseFromRow(rowElement) {
+        var course = {}
+        course.id = rowElement.getAttribute('id')
+        course.CourseName = rowElement.cells[1].textContent
+        course.StudentName = rowElement.cells[2].textContent
+        course.Duration = parseInt(rowElement.cells[3].textContent, 10)
+        return course
+    }
+    function setCourseInRow(rowElement, course) {
+        rowElement.cells[0].textContent = course.id
+        rowElement.cells[1].textContent = course.CourseName
+        rowElement.cells[2].textContent = course.StudentName
+        rowElement.cells[3].textContent = course.Duration
+    }
+    function populateFormWithCourse(course) {
+        var form = document.getElementById('createUpdateForm')
+        form.querySelector('input[name="id"]').disabled = true
+        form.querySelector('input[name="id"]').value = course.id
+        form.querySelector('input[name="CourseName"]').value = course.CourseName
+        form.querySelector('input[name="StudentName"]').value = course.StudentName
+        form.querySelector('input[name="Duration"]').value = course.Duration
+        return course
+    }
+    function getCourseFromForm() {
+        var form = document.getElementById('createUpdateForm')
+        var course = {}
+        course.id = form.querySelector('input[name="id"]').value
+        course.CourseName = form.querySelector('input[name="CourseName"]').value
+        course.StudentName = form.querySelector('input[name="StudentName"]').value
+        course.Duration = parseInt(form.querySelector('input[name="Duration"]').value, 10)
+        return course
+    }
+    function getAllAjax() {
+        $.ajax({
+            url: "/courses",
+            method: "GET",
+            dataType: "JSON",
+            success: function (result) {
+                for (course of result) {
+                    addCourseToTable(course);
+                }
+            },
+            error: function (xhr, status, error) {
+                console.log("error: " + status + " msg:" + error);
+            }
+        });
+    }
+    function createCourseAjax(course) {
+        $.ajax({
+            url: "/courses",
+            method: "POST",
+            data: JSON.stringify(course),
+            dataType: "JSON",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                course.id = result.id
+                addCourseToTable(course)
+                clearForm()
+                showViewAll()
+            },
+            error: function (xhr, status, error) {
+                console.log("error: " + status + " msg:" + error);
+            }
+        });
+    }
+    function updateCourseAjax(course) {
+        $.ajax({
+            url: "/courses/" + encodeURI(course.id),
+            method: "PUT",
+            data: JSON.stringify(course),
+            dataType: "JSON",
+            contentType: "application/json; charset=utf-8"
+        });
+    }
+    function deleteCourseAjax(id) {
+        $.ajax({
+            url: "/courses/" + encodeURI(id),
+            method: "DELETE",
+            dataType: "JSON",
+            contentType: "application/json; charset=utf-8"
+        });
+    }
+    getAllAjax();
+</script>
+
+</html>
