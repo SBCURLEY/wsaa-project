@@ -187,7 +187,7 @@
             deleteCourseAjax(id);
         }
 
-        function getCourseFromRow(rowElement) {
+        function getCourseFromRow(rowElement) {         //Used by: showUpdate()
             return {
                 id: rowElement.cells[0].textContent,
                 CourseName: rowElement.cells[1].textContent,
@@ -196,7 +196,7 @@
             };
         }
 
-        function populateFormWithCourse(course) {
+        function populateFormWithCourse(course) {           //Used by: showUpdate()
             const form = document.getElementById('createUpdateForm');
             form.querySelector('input[name="id"]').value = course.id;
             form.querySelector('input[name="CourseName"]').value = course.CourseName;
@@ -204,7 +204,7 @@
             form.querySelector('input[name="Duration"]').value = course.Duration;
         }
 
-        function getCourseFromForm() {
+        function getCourseFromForm() {                      //Used by: doUpdate()
             const form = document.getElementById('createUpdateForm');
             return {
                 id: form.querySelector('input[name="id"]').value,
@@ -214,7 +214,7 @@
             };
         }
 
-        function clearForm() {
+        function clearForm() {                          //Used by: showViewAll()
             const form = document.getElementById('createUpdateForm');
             form.querySelector('input[name="id"]').value = '';
             form.querySelector('input[name="CourseName"]').value = '';
@@ -222,8 +222,8 @@
             form.querySelector('input[name="Duration"]').value = '';
         }
 
-        function createCourseAjax(course) {
-            $.ajax({
+        function createCourseAjax(course) {         // Used by: doCreate()
+            $.ajax({                                // ajax calls the create method from the server
                 url: "/courses",
                 method: "POST",
                 data: JSON.stringify(course),
@@ -239,9 +239,9 @@
             });
         }
 
-        function updateCourseAjax(course) {
+        function updateCourseAjax(course) {             // Used by: doUpdate()
             $.ajax({
-                url: "/courses/" + encodeURIComponent(course.id),
+                url: "/courses/" + encodeURIComponent(course.id),   // ajax calls the update method from the server
                 method: "PUT",
                 data: JSON.stringify(course),
                 dataType: "json",
@@ -255,7 +255,7 @@
             });
         }
 
-        function deleteCourseAjax(id) {
+        function deleteCourseAjax(id) {                     // Used by: deleteCourse()
             $.ajax({
                 url: "/courses/" + encodeURIComponent(id),
                 method: "DELETE",

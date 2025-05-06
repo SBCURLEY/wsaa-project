@@ -33,7 +33,7 @@ def create():
         "StudentName": request.json['StudentName'],
         "Duration": request.json['Duration'],
     }
-    added = courseDAO.create(course)
+    added = courseDAO.create(course)      # call DAO to add course
     return jsonify(added)
 
 @app.route('/courses/<int:id>', methods=['PUT'])
@@ -55,13 +55,13 @@ def update(id):
     if 'Duration' in reqJson:
         found['Duration'] = reqJson['Duration']
 
-    courseDAO.update(id, found)
+    courseDAO.update(id, found)             # call DAO to update course
     return jsonify(found)
 
 @app.route('/courses/<int:id>', methods=['DELETE'])
-@cross_origin()
+@cross_origin()                                       # allows to call from other domains
 def delete(id):
-    courseDAO.delete(id)
+    courseDAO.delete(id)                                # call DAO to delete
     return jsonify({"done": True})
 
 if __name__ == '__main__':
