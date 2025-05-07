@@ -31,7 +31,7 @@ class CourseDAO:
 
     def getAll(self):
         cursor = self.getcursor()
-        sql = "SELECT * FROM course"
+        sql = "SELECT * FROM course ORDER BY id ASC"    # sequential order of ID
         cursor.execute(sql)
         results = cursor.fetchall()
         returnArray = []
