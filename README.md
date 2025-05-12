@@ -1,12 +1,9 @@
-# wsaa-project
-wsaa-project
-
 # Web Services and Applications Project Repository
 
 **By Sharon Curley (G00438863@atu.ie)**
 
 <p align="center">
-    <img width="768" height="432" src="./images/courses.jpg" alt="Sublime's custom image"/>
+    <img width="768" height="432" src="./images/Courses.jpg" alt="Sublime's custom image"/>
 </p>
 
 
@@ -15,7 +12,7 @@ wsaa-project
 This repository contains my project submission for the module Web Services and Applications.
 My github repository link is as follows:
 
-[SBCURLEY/wsaa-project](hhttps://github.com/SBCURLEY/wsaa-project)
+[SBCURLEY/wsaa-project](https://github.com/SBCURLEY/wsaa-project)
 
 ## Installation
 I had to install the below to get started on this repository
