@@ -15,7 +15,7 @@ My github repository link is as follows:
 [SBCURLEY/wsaa-project](https://github.com/SBCURLEY/wsaa-project)
 
 ## Installation
-I had to install the below to get started on this repository
+I had to install the below to get started on this project.
 - Python : programming language/runtime environment.
 - Visual Studio Code : code editor (IDE).
 - GitHub : platform.
@@ -173,23 +173,37 @@ xxxxxxxxxxxxxxxxxxxxxxxx
 ### **6. requirements.txt**
 
 #### Core Libraries
+
 -Flask==3.0.0 – Web framework.
+
 -flask-cors==5.0.1 – Handles CORS in Flask.
+
 -mysql-connector==2.2.9 – Connects Python to MySQL.
 
 #### Flask Dependencies (Automatically Installed with Flask)
+
 These are indirect dependencies of Flask. You usually don’t need to list them manually unless you want specific versions:
+
 -Werkzeug==3.0.1 – Core library used by Flask for request/response handling.
+
 -Jinja2==3.1.2 – Template engine used by Flask.
+
 -itsdangerous==2.1.2 – Used for secure token generation in Flask.
+
 -click==8.1.7 – Command-line interface library used by Flask.
+
 -blinker==1.7.0 – Optional, used for Flask’s signal support.
+
 -MarkupSafe==2.1.3 – Used by Jinja2 for escaping.
--colorama==0.4.6 – Optional, helps with colored CLI output (useful in Windows terminals).
+
+-colorama==0.4.6 – helps with colored CLI output.
 
 #### Python Environment Utilities
+
 -importlib-metadata==6.8.0 – Helps manage metadata in older Python versions.
--zipp==3.17.0 – Supports zip imports; often a transitive dependency of importlib-metadata.-
+
+-zipp==3.17.0 – Supports zip imports; often a transitive dependency of importlib-metadata.
+
 <br>
 <br>
 
