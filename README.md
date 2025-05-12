@@ -28,7 +28,7 @@ Once the above are installed, you can run the programs.
 The following libraries are required to execute my programs. Using python, import the following:
 - `import json`: JSON is a syntax for storing and exchanging data. It is text, written with JavaScript object notation.
 - `import github`: This imports the `Github` class from the `PyGithub` library
-- `import config`: This imports a variable named `config` from a separate Python file called `config.py`, and renames it as cfg for use in my script.
+- `import dbconfig`: This imports a variable named `dbconfig` from a separate Python file called `dbconfig.py`, and renames it as cfg for use in my script.
 - `PyGithub`: library for interacting with GitHub’s API using Python.
 - `import mysql.connector` : MySQL client library to connect Python with MySQL databases.
 - `import Flask from Flask` : web framework for Python.
