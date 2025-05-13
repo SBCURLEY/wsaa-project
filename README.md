@@ -38,11 +38,29 @@ The following libraries are required to execute my programs. Using python, impor
 
 
 ## About
+This is a web application for managing courses and enrolled students. It allows users to view, create, update, and delete course records through a dynamic and user-friendly interface. The below image illustrates the flow of data and function calls across my course management application — from the user interface to the database.
+<br>
+<br>
 
 ![alt text](images/overview.png)
+<br>
+<br>
 
+- Database layer: projcourses
+- 
+- Data Access Layer : courseDAO.py
 
+- Backend API Layer : server.py
 
+- AJAX Layer : JavaScript/Query
+
+- JavaScript Interface Logic :  tie UI actions to AJAX
+
+- HTML User Interface : visual interface. 
+<br>
+<br>
+<br>
+<br>
 ## Repository Structure
 
 ### **1. images**
@@ -58,23 +76,8 @@ This gitignore file specifies intentionally untracked files that Git should igno
 <br>
 
 ### **3. courseDAO.py**
-xxxxxxxxxxxxxxxxxx
-<br>
-<br>
 
-#### Program Steps
-xxxxxxxxxxxxxxxxxx
-<br>
-<br>
-
-#### Executable command
-- $ python xxxxxxxxxxxxxxx.py
-<br>
-<br>
-
-#### Sample Output
-xxxxxxxxxxxxxxxxxxxxxxxx
-
+This program contains the logic for interacting with the MySQL database. It connects to the MySQL database using credentials from dbconfig.py. It performs SQL operations: SELECT, INSERT, UPDATE, and DELETE. Also, it converts database rows into Python
 <br>
 <br>
 
@@ -85,17 +88,28 @@ xxxxxxxxxxxxxxxxxxxxxxxx
 
 
 ### **4. courseviewer4.html**
-xxxxxxxxxxxxxxxxxx
+This is the main user interface for managing course data. It displays all course rows in a table. 
+Below are the main flows for each action a user can choose: Create, Update or Delete. 
 
-![alt text](images/create.png)
+#### Create Operation
+
+The user click on green Create button and submits a form with details. The form is sent to the server. The data is refreshed. The updated table is displayed.
+
+![Create Operation](images/create.png)
 
 
+#### Update Operation
 
-![alt text](images/update.png)
+The user clicks on yellow update button. Update mode is triggered. Form is filled in with current row data. The form is edited with updated details. The form is sent to the server. The data is refreshed. The updated table is displayed.
+
+![Update Operation](images/update.png)
+
+#### Delete Operation
+
+The user clicks on red delete button. The courses unique id is identified and passed to the Ajax function to begin deletion. The request is sent to the server. The data is refreshed following removal of the deleted course. The updated table is displayed.
 
 
-
-![alt text](images/delete.png)
+![Delete Operation](images/delete.png)
 <br>
 <br>
 
@@ -208,54 +222,29 @@ These are indirect dependencies of Flask. You usually don’t need to list them 
 <br>
 
 ### **7. server.py**
-xxxxxxxxxxxxxxxxxx
+
+This program defines the RESTful API endpoints used by the frontend to communicate with the server.
 <br>
 <br>
 
 #### Program Steps
-xxxxxxxxxxxxxxxxxx
+
+This program uses Flask-CORS to allow cross-origin requests from the frontend. It parses JSON requests and responds with JSON data.
+It uses courseDAO for all database operations.
 <br>
 <br>
 
 #### Executable command
-- $ python xxxxxxxxxxxxxxx.py
+- $ python server.py
 <br>
 <br>
 
-#### Sample Output
-xxxxxxxxxxxxxxxxxxxxxxxx
-
-<br>
-<br>
 
 #### References
 - Topic 
--
--**
-xxxxxxxxxxxxxxxxxx
-<br>
-<br>
-
-#### Program Steps
-xxxxxxxxxxxxxxxxxx
-<br>
-<br>
-
-#### Executable command
-- $ python xxxxxxxxxxxxxxx.py
-<br>
-<br>
-
-#### Sample Output
-xxxxxxxxxxxxxxxxxxxxxxxx
-
-<br>
-<br>
-
-#### References
-- Topic 
--
--
+- 
+- 
+- 
 <br>
 <br>
 <br>
