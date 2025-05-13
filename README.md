@@ -47,7 +47,7 @@ This is a web application for managing courses and enrolled students. It allows 
 <br>
 
 - Database layer: projcourses
-- 
+  
 - Data Access Layer : courseDAO.py
 
 - Backend API Layer : server.py
@@ -61,6 +61,7 @@ This is a web application for managing courses and enrolled students. It allows 
 <br>
 <br>
 <br>
+
 ## Repository Structure
 
 ### **1. images**
@@ -113,85 +114,32 @@ The user clicks on red delete button. The courses unique id is identified and pa
 <br>
 <br>
 
-#### Program Steps
-xxxxxxxxxxxxxxxxxx
-<br>
-<br>
-
-#### Executable command
-- $ python xxxxxxxxxxxxxxx.py
-<br>
-<br>
-
-#### Sample Output
-xxxxxxxxxxxxxxxxxxxxxxxx
-
-<br>
-<br>
-
 #### References
 - Topic 
 -
 -
 
 ### **5. dbconfig.py**
-xxxxxxxxxxxxxxxxxx
+The deconfig.py contains the configuration details needed to connect to the MySQL database using the root user. 
 <br>
 <br>
 
-#### Program Steps
-xxxxxxxxxxxxxxxxxx
-<br>
-<br>
-
-#### Executable command
-- $ python xxxxxxxxxxxxxxx.py
-<br>
-<br>
-
-#### Sample Output
-xxxxxxxxxxxxxxxxxxxxxxxx
-
-<br>
-<br>
 
 #### References
 - Topic 
 -
--**
-xxxxxxxxxxxxxxxxxx
+
+### **6. README.md**
+This file serves as the first point of contact for users and developers who want to understand the purpose, setup, and usage of my repository.
 <br>
 <br>
 
-#### Program Steps
-xxxxxxxxxxxxxxxxxx
-<br>
-<br>
-
-#### Executable command
-- $ python xxxxxxxxxxxxxxx.py
-<br>
-<br>
-
-#### Sample Output
-xxxxxxxxxxxxxxxxxxxxxxxx
-
-<br>
-<br>
-
-#### References
-- Topic 
--
--
-
-### **6. requirements.txt**
+### **7. requirements.txt**
 
 #### Core Libraries
 
 -Flask==3.0.0 – Web framework.
-
 -flask-cors==5.0.1 – Handles CORS in Flask.
-
 -mysql-connector==2.2.9 – Connects Python to MySQL.
 
 #### Flask Dependencies (Automatically Installed with Flask)
@@ -199,29 +147,21 @@ xxxxxxxxxxxxxxxxxxxxxxxx
 These are indirect dependencies of Flask. You usually don’t need to list them manually unless you want specific versions:
 
 -Werkzeug==3.0.1 – Core library used by Flask for request/response handling.
-
 -Jinja2==3.1.2 – Template engine used by Flask.
-
 -itsdangerous==2.1.2 – Used for secure token generation in Flask.
-
 -click==8.1.7 – Command-line interface library used by Flask.
-
 -blinker==1.7.0 – Optional, used for Flask’s signal support.
-
 -MarkupSafe==2.1.3 – Used by Jinja2 for escaping.
-
 -colorama==0.4.6 – helps with colored CLI output.
 
 #### Python Environment Utilities
 
 -importlib-metadata==6.8.0 – Helps manage metadata in older Python versions.
-
 -zipp==3.17.0 – Supports zip imports; often a transitive dependency of importlib-metadata.
-
 <br>
 <br>
 
-### **7. server.py**
+### **8. server.py**
 
 This program defines the RESTful API endpoints used by the frontend to communicate with the server.
 <br>
