@@ -39,24 +39,34 @@ def create():
 @app.route('/courses/<int:id>', methods=['PUT'])
 @cross_origin()
 def update(id):
-    found = courseDAO.findByID(id)
-    if not found:
-        abort(404)
-    if not request.json:
-        abort(400)
-    reqJson = request.json
-    if 'Duration' in reqJson and type(reqJson['Duration']) is not int:
-        abort(400)
+    try:
+        found = courseDAO.findByID(id)
+        if not found:
+            abort(404)
+        if not request.json:
+            abort(400)
+        reqJson = request.json
+        
+        if 'Duration' in reqJson:
+            try:
+                reqJson['Duration'] = int(reqJson['Duration'])  # change to int
+            except ValueError:
+                abort(400)
 
-    if 'CourseName' in reqJson:
-        found['CourseName'] = reqJson['CourseName']
-    if 'StudentName' in reqJson:
-        found['StudentName'] = reqJson['StudentName']
-    if 'Duration' in reqJson:
-        found['Duration'] = reqJson['Duration']
+        if 'CourseName' in reqJson:
+            found['CourseName'] = reqJson['CourseName']
+        if 'StudentName' in reqJson:
+            found['StudentName'] = reqJson['StudentName']
+        if 'Duration' in reqJson:
+            found['Duration'] = reqJson['Duration']
 
-    courseDAO.update(id, found)             # call DAO to update course
-    return jsonify(found)
+        courseDAO.update(id, found)             # call DAO to update course
+        
+        return jsonify(found)
+
+    except Exception as e:
+        print("Update Error:", e)  
+        abort(500)
 
 @app.route('/courses/<int:id>', methods=['DELETE'])
 @cross_origin()                                       # allows to call from other domains

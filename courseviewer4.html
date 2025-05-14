@@ -179,8 +179,8 @@
         function doUpdate() {
             const course = getCourseFromForm();
             updateCourseAjax(course);
-            showViewAll();
-            getAllAjax(); // reload updated data
+            //showViewAll();
+            //getAllAjax(); 
         }
 
         function doDelete(id) {
@@ -247,6 +247,7 @@
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 success: function () {
+                    showViewAll();
                     getAllAjax();
                 },
                 error: function (xhr, status, error) {

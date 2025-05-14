@@ -47,7 +47,10 @@ class CourseDAO:
         cursor.execute(sql, values)
         result = cursor.fetchone()
         self.closeAll()
-        return self.convertToDictionary(result)
+        if result:
+            return self.convertToDictionary(result)
+        else:
+            return {}
 
     def create(self, course):
         cursor = self.getcursor()
@@ -77,6 +80,8 @@ class CourseDAO:
 
     def convertToDictionary(self, resultLine):
         attkeys = ['id', 'CourseName', 'StudentName', 'Duration']
+        if resultLine is None:
+            return {}
         course = {}
         for i, attrib in enumerate(resultLine):
             course[attkeys[i]] = attrib
