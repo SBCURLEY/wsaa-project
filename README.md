@@ -36,7 +36,6 @@ The following libraries are required to execute my programs. Using python, impor
 <br>
 <br>
 
-
 ## About
 This is a web application for managing courses and enrolled students. It allows users to view, create, update, and delete course records through a dynamic and user-friendly interface. The below image illustrates the flow of data and function calls across my course management application — from the user interface to the database.
 <br>
@@ -46,17 +45,17 @@ This is a web application for managing courses and enrolled students. It allows 
 <br>
 <br>
 
-- Database layer: projcourses
-  
+- Database layer: My SQL data is called 'projcourses'. It has one table called 'course'. This tables has four columns 'id', 'CourseName', 'StudentName',  and 'Duration' of course.
+
 - Data Access Layer : courseDAO.py
 
 - Backend API Layer : server.py
 
 - AJAX Layer : JavaScript/Query
 
-- JavaScript Interface Logic :  tie UI actions to AJAX
+- JavaScript Interface Logic :  ties UI actions to AJAX
 
-- HTML User Interface : visual interface. 
+- HTML User Interface : visual interface.
 <br>
 <br>
 <br>
@@ -78,14 +77,14 @@ This gitignore file specifies intentionally untracked files that Git should igno
 
 ### **3. courseDAO.py**
 
-This program contains the logic for interacting with the MySQL database. It connects to the MySQL database using credentials from dbconfig.py. It performs SQL operations: SELECT, INSERT, UPDATE, and DELETE. Also, it converts database rows into Python
+This program contains the logic for interacting with the MySQL database. It connects to the MySQL database using credentials from dbconfig.py. It performs SQL operations: SELECT, INSERT, UPDATE, and DELETE. Also, it converts database rows into Python.
 <br>
 <br>
 
 #### References
-- Topic 
--
--
+- Topic 4 Writing a module to interact with API
+- Medium - Understanding CRUD Operations: https://medium.com/@sikirus81/understanding-crud-operations-86414348bca4
+- Topic WSAA Putting it Together.
 
 
 ### **4. courseviewer4.html**
@@ -115,9 +114,15 @@ The user clicks on red delete button. The courses unique id is identified and pa
 <br>
 
 #### References
-- Topic 
--
--
+- Topic 3: HTTPS & URL
+- HTTP Made Really Easy:  https://www.jmarshall.com/easy/http/
+- w3schools - HTML: https://www.w3schools.com/html/
+- w3schools - HTML CSS: https://www.w3schools.com/html/html_css.asp
+- Real Python - HTML and CSS: https://realpython.com/html-css-python/   
+- w3schools - JavaScript:  https://www.w3schools.com/js/default.asp
+- GeeksforGeeks - css tutorial: https://www.geeksforgeeks.org/css-tutorial/
+- Topic WSAA Putting it Together.
+
 
 ### **5. dbconfig.py**
 The deconfig.py contains the configuration details needed to connect to the MySQL database using the root user. 
@@ -126,8 +131,8 @@ The deconfig.py contains the configuration details needed to connect to the MySQ
 
 
 #### References
-- Topic 
--
+- MySQL 5.1 Connecting to MySQL Using Connector/Python:  https://dev.mysql.com/doc/connector-python/en/connector-python-example-connecting.html
+- martin-thoma.com - Configuration files in Python: https://martin-thoma.com/configuration-files-in-python/
 
 ### **6. README.md**
 This file serves as the first point of contact for users and developers who want to understand the purpose, setup, and usage of my repository.
@@ -191,10 +196,11 @@ It uses courseDAO for all database operations.
 
 
 #### References
-- Topic 
-- 
-- 
-- 
+- Topic 3: RESTful API's
+- Topic 6: Flask
+- Topic 6: REST server 
+- Flask - Application Set up: https://flask.palletsprojects.com/en/latest/tutorial/factory/
+- Topic WSAA Putting it Together.
 <br>
 <br>
 <br>
