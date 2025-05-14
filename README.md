@@ -199,7 +199,6 @@ It uses courseDAO for all database operations.
 #### Executable command
 - $ python server.py
 <br>
-<br>
 
 #### References
 - Topic 3: RESTful API's
