@@ -146,6 +146,7 @@ The deconfig.py contains the configuration details needed to connect to the MySQ
 This file serves as the first point of contact for users and developers who want to understand the purpose, setup, and usage of my repository.
 <br>
 <br>
+<br>
 
 ### **7. requirements.txt**
 
