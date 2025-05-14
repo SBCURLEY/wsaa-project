@@ -15,6 +15,7 @@ My github repository link is as follows:
 [SBCURLEY/wsaa-project](https://github.com/SBCURLEY/wsaa-project)
 <br>
 <br>
+
 ## Installation
 I had to install the below to get started on this project.
 - Python : programming language/runtime environment.
@@ -23,10 +24,12 @@ I had to install the below to get started on this project.
 - WAMP : Windows-based software stack that installs Windows, Apache, MySQL and PHP.
 <br>
 <br>
+
 ## Usage
 Once the above are installed, you can run the programs.
 <br>
 <br>
+
 ## Dependencies
 The following libraries are required to execute my programs. Using python, import the following:
 - `import json`: JSON is a syntax for storing and exchanging data. It is text, written with JavaScript object notation.
@@ -38,6 +41,7 @@ The following libraries are required to execute my programs. Using python, impor
 - `import CORS` : extension for Flask to handle Cross-Origin Resource Sharing.
 <br>
 <br>
+
 ## About
 This is a web application for managing courses and enrolled students. It allows users to view, create, update, and delete course records through a dynamic and user-friendly interface. The below image illustrates the flow of data and function calls across my course management application — from the user interface to the database.
 <br>
@@ -196,7 +200,6 @@ It uses courseDAO for all database operations.
 - $ python server.py
 <br>
 <br>
-
 
 #### References
 - Topic 3: RESTful API's
