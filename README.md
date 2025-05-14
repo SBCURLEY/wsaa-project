@@ -13,17 +13,20 @@ This repository contains my project submission for the module Web Services and A
 My github repository link is as follows:
 
 [SBCURLEY/wsaa-project](https://github.com/SBCURLEY/wsaa-project)
-
+<br>
+<br>
 ## Installation
 I had to install the below to get started on this project.
 - Python : programming language/runtime environment.
 - Visual Studio Code : code editor (IDE).
 - GitHub : platform.
 - WAMP : Windows-based software stack that installs Windows, Apache, MySQL and PHP.
-
+<br>
+<br>
 ## Usage
 Once the above are installed, you can run the programs.
-
+<br>
+<br>
 ## Dependencies
 The following libraries are required to execute my programs. Using python, import the following:
 - `import json`: JSON is a syntax for storing and exchanging data. It is text, written with JavaScript object notation.
@@ -35,7 +38,6 @@ The following libraries are required to execute my programs. Using python, impor
 - `import CORS` : extension for Flask to handle Cross-Origin Resource Sharing.
 <br>
 <br>
-
 ## About
 This is a web application for managing courses and enrolled students. It allows users to view, create, update, and delete course records through a dynamic and user-friendly interface. The below image illustrates the flow of data and function calls across my course management application — from the user interface to the database.
 <br>
@@ -56,8 +58,6 @@ This is a web application for managing courses and enrolled students. It allows 
 - JavaScript Interface Logic :  ties UI actions to AJAX
 
 - HTML User Interface : visual interface.
-<br>
-<br>
 <br>
 <br>
 
@@ -85,7 +85,8 @@ This program contains the logic for interacting with the MySQL database. It conn
 - Topic 4 Writing a module to interact with API
 - Medium - Understanding CRUD Operations: https://medium.com/@sikirus81/understanding-crud-operations-86414348bca4
 - Topic WSAA Putting it Together.
-
+<br>
+<br>
 
 ### **4. courseviewer4.html**
 This is the main user interface for managing course data. It displays all course rows in a table. 
@@ -122,7 +123,8 @@ The user clicks on red delete button. The courses unique id is identified and pa
 - w3schools - JavaScript:  https://www.w3schools.com/js/default.asp
 - GeeksforGeeks - css tutorial: https://www.geeksforgeeks.org/css-tutorial/
 - Topic WSAA Putting it Together.
-
+<br>
+<br>
 
 ### **5. dbconfig.py**
 The deconfig.py contains the configuration details needed to connect to the MySQL database using the root user. 
@@ -133,6 +135,8 @@ The deconfig.py contains the configuration details needed to connect to the MySQ
 #### References
 - MySQL 5.1 Connecting to MySQL Using Connector/Python:  https://dev.mysql.com/doc/connector-python/en/connector-python-example-connecting.html
 - martin-thoma.com - Configuration files in Python: https://martin-thoma.com/configuration-files-in-python/
+<br>
+<br>
 
 ### **6. README.md**
 This file serves as the first point of contact for users and developers who want to understand the purpose, setup, and usage of my repository.
@@ -172,7 +176,6 @@ These are indirect dependencies of Flask. You usually don’t need to list them 
 - importlib-metadata==6.8.0 – Helps manage metadata in older Python versions.
 
 - zipp==3.17.0 – Supports zip imports; often a transitive dependency of importlib-metadata.
-
 <br>
 <br>
 
