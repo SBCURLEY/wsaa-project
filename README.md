@@ -94,7 +94,7 @@ This program contains the logic for interacting with the MySQL database. It conn
 
 ### **4. courseviewer4.html**
 This is the main user interface for managing course data. It displays all course rows in a table. 
-Below are the main flows for each action a user can choose: Create, Update or Delete. 
+Below are the main flows for each action a user can choose: Create, Update or Delete. The user can cancel out of the Create and Update operations, back to the List View. 
 
 #### Create Operation
 
